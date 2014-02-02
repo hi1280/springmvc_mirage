@@ -5,14 +5,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>サンプル</title>
+<title>ユーザ一覧</title>
 </head>
 <body>
 <div>ユーザ一覧</div>
+<div><a href="<c:url value="/user/new" />">新規登録</a></div>
 <table border="1">
   <tr>
     <th>ユーザ名</th>
     <th>メールアドレス</th>
+    <th></th>
     <th></th>
   </tr>
   <c:forEach var="user" items="${userList}">
@@ -20,6 +22,7 @@
     <td>${user.username}</td>
     <td>${user.mailaddress}</td>
     <td><a href="<c:url value="/user" ><c:param name="username" value="${user.username}" /></c:url>">表示</a></td>
+    <td><a href="<c:url value="/user/edit" ><c:param name="username" value="${user.username}" /></c:url>">編集</a></td>
   </tr>
   </c:forEach>
 </table>
